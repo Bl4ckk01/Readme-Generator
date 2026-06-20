@@ -633,10 +633,9 @@
       });
     }
 
-    const finalText = md || '// Il codice apparirà qui...';
+    const finalText = md;
     document.getElementById('code').textContent = finalText;
 
-    // Numeri di riga
     const lineCount = finalText.split('\n').length;
     document.getElementById('lineNumbers').innerHTML = Array.from(
       { length: lineCount }, (_, i) => i + 1
