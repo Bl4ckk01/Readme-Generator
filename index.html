@@ -289,60 +289,27 @@
     const gridtools = document.getElementById('tools-grid');
     const gridsocial = document.getElementById('social-grid');
 
-    //Buttons front end
-    frontend.forEach(lang => {
-        const id = lang.toLowerCase().replace('.', '');
-        gridfront.innerHTML += `
-          <div>
-            <input type="checkbox" id="${id}" class="peer hidden">
-            <label for="${id}" class="cursor-pointer flex justify-center py-3 rounded-xl border border-green-400/20 text-white/70 hover:bg-green-400/10 peer-checked:bg-green-400/20 peer-checked:border-green-400/70 peer-checked:text-white transition duration-300">${lang}</label>
-          </div>
-        `
-    })
 
-    //Buttons backend
-    backend.forEach(lang => {
-        const id = lang.toLowerCase().replace('.', '');
-        gridback.innerHTML += `
-          <div>
-            <input type="checkbox" id="${id}" class="peer hidden">
-            <label for="${id}" class="cursor-pointer flex justify-center py-3 rounded-xl border border-green-400/20 text-white/70 hover:bg-green-400/10 peer-checked:bg-green-400/20 peer-checked:border-green-400/70 peer-checked:text-white transition duration-300">${lang}</label>
-          </div>
-        `
-    })
+    //Creat a grid of buttons for a category 
+    function createGrid(container, items) {
+      container.innerHTML = '';
 
-    //Buttons game / scripting
-    game.forEach(lang => {
+      items.forEach(lang => {
         const id = lang.toLowerCase().replace('.', '');
-        gridgame.innerHTML += `
+        container.innerHTML += `
           <div>
             <input type="checkbox" id="${id}" class="peer hidden">
             <label for="${id}" class="cursor-pointer flex justify-center py-3 rounded-xl border border-green-400/20 text-white/70 hover:bg-green-400/10 peer-checked:bg-green-400/20 peer-checked:border-green-400/70 peer-checked:text-white transition duration-300">${lang}</label>
           </div>
         `
-    })
+      });
+    }
 
-    //Button dataabse
-    database.forEach(lang => {
-        const id = lang.toLowerCase().replace('.', '');
-        griddb.innerHTML += `
-          <div>
-            <input type="checkbox" id="${id}" class="peer hidden">
-            <label for="${id}" class="cursor-pointer flex justify-center py-3 rounded-xl border border-green-400/20 text-white/70 hover:bg-green-400/10 peer-checked:bg-green-400/20 peer-checked:border-green-400/70 peer-checked:text-white transition duration-300">${lang}</label>
-          </div>
-        `
-    })
-
-    //Buttons Tools
-    tools.forEach(lang => {
-        const id = lang.toLowerCase().replace('.', '');
-        gridtools.innerHTML += `
-          <div>
-            <input type="checkbox" id="${id}" class="peer hidden">
-            <label for="${id}" class="cursor-pointer flex justify-center py-3 rounded-xl border border-green-400/20 text-white/70 hover:bg-green-400/10 peer-checked:bg-green-400/20 peer-checked:border-green-400/70 peer-checked:text-white transition duration-300">${lang}</label>
-          </div>
-        `
-    })
+    createGrid(gridfront, frontend);
+    createGrid(gridback, backend);
+    createGrid(gridgame, game);
+    createGrid(griddb, database);
+    createGrid(gridtools, tools);
 
     //Input Social Link
     social.forEach(lang => {
